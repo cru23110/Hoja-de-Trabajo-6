@@ -1,7 +1,9 @@
-import java.util.HashMap;
-import java.util.LinkedHashMap;
+/*Universidad del Valle de Guatemala
+Algoritmos y estruccturas de datos
+Linda Chen 23173
+Juan Cruz - 23110*/
+
 import java.util.Map;
-import java.util.TreeMap;
 
 public class CartasManager {
     private ColeccionCartas coleccionCartas;

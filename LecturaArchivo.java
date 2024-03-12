@@ -1,3 +1,8 @@
+/*Universidad del Valle de Guatemala
+Algoritmos y estruccturas de datos
+Linda Chen 23173
+Juan Cruz - 23110*/
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

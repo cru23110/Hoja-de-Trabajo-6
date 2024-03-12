@@ -3,37 +3,39 @@ Algoritmos y estruccturas de datos
 Linda Chen 23173
 Juan Cruz - 23110*/
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class CartasManager {
-    private ColeccionCartas coleccionCartas;
+    private Map<String, String> cartasDisponibles; // Mapa de nombre de carta a tipo.
+    private Map<String, Integer> coleccionUsuario; // Mapa de nombre de carta a cantidad en la colección del usuario.
 
     public CartasManager(int opcion) {
-        Map<String, Integer> mapa = FactoryMap.getMap(opcion);
-        this.coleccionCartas = new ColeccionCartas(mapa);
+        this.cartasDisponibles = FactoryMap.getMap(opcion);
+        this.coleccionUsuario = new HashMap<>();
     }
 
-    public void agregarCarta(String nombreCarta) {
-        coleccionCartas.agregarCarta(nombreCarta);
+    public void cargarCarta(String nombre, String tipo) {
+        cartasDisponibles.put(nombre, tipo);
     }
 
-    public void mostrarColeccion() {
-        coleccionCartas.mostrarColeccion();
-    }
-
-    public void mostrarColeccionOrdenada() {
-        coleccionCartas.mostrarColeccionOrdenada();
+    public void agregarCartaUsuario(String nombreCarta) {
+        if (!cartasDisponibles.containsKey(nombreCarta)) {
+            System.out.println("La carta \"" + nombreCarta + "\" no existe en las cartas disponibles.");
+            return;
+        }
+        coleccionUsuario.put(nombreCarta, coleccionUsuario.getOrDefault(nombreCarta, 0) + 1);
+        System.out.println("Carta \"" + nombreCarta + "\" agregada a la colección del usuario.");
     }
 
     public void mostrarTipoCarta(String nombreCarta) {
-        coleccionCartas.mostrarTipoCarta(nombreCarta);
+        String tipo = cartasDisponibles.get(nombreCarta);
+        if (tipo != null) {
+            System.out.println("La carta \"" + nombreCarta + "\" es de tipo " + tipo + ".");
+        } else {
+            System.out.println("La carta \"" + nombreCarta + "\" no existe.");
+        }
     }
 
-    public void mostrarTodasLasCartas() {
-        coleccionCartas.mostrarTodasLasCartas();
-    }
-
-    public void mostrarTodasLasCartasOrdenadas() {
-        coleccionCartas.mostrarTodasLasCartasOrdenadas();
-    }
+    // Implementa métodos adicionales según sea necesario...
 }

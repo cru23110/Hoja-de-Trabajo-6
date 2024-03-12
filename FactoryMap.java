@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class FactoryMap {
-    public static Map<String, Integer> getMap(int opcion) {
+    public static Map<String, String> getMap(int opcion) {
         switch (opcion) {
             case 1:
                 return new HashMap<>();
